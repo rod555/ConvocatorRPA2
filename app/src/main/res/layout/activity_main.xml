@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="true">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/nombredeconvo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Basket Ingenieria"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="16dp" />
+
+            <TextView
+                android:id="@+id/horaselect"
+                android:layout_width="234dp"
+                android:layout_height="27dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:onClick="selectorHora"
+                android:text="Selecciona la hora del partido"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBoxJU" />
+
+            <TextView
+                android:id="@+id/diaselect"
+                android:layout_width="215dp"
+                android:layout_height="23dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:text="Selecciona el dia del partido"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nombredeconvo" />
+
+            <TextView
+                android:id="@+id/horaselected"
+                android:layout_width="205dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="18:00"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintTop_toBottomOf="@+id/horaselect"
+                tools:layout_editor_absoluteX="84dp"
+                android:onClick="selectorHora"/>
+
+            <CheckBox
+                android:id="@+id/checkconvo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:checked="true"
+                android:text="Convocatoria"
+                app:layout_constraintStart_toStartOf="@+id/horaselected"
+                app:layout_constraintTop_toBottomOf="@+id/horaselected"
+                android:onClick="onClickCheckconvo"/>
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="hs antes"
+                app:layout_constraintBottom_toBottomOf="@+id/horasanteconvo"
+                app:layout_constraintStart_toEndOf="@+id/horasanteconvo"
+                app:layout_constraintTop_toTopOf="@+id/horasanteconvo"
+                app:layout_constraintVertical_bias="0.625" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="224dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="20dp"
+                android:text="  LU   MAR MIE  JUE   VIE    SA    DO"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/diaselect" />
+
+            <CheckBox
+                android:id="@+id/checkwarning"
+                android:layout_width="117dp"
+                android:layout_height="31dp"
+                android:layout_marginTop="20dp"
+                android:text="Recordatorio"
+                android:checked="true"
+                app:layout_constraintStart_toStartOf="@+id/checkconvo"
+                app:layout_constraintTop_toBottomOf="@+id/checkconvo"
+                android:onClick="onClickCheckwarning"/>
+
+            <Button
+                android:id="@+id/iniciohilo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="50dp"
+                android:text="Activar Convo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horasantewarn"
+                android:onClick="inicioHilo"/>
+
+
+            <Button
+                android:id="@+id/cargarevento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:text="Cargar Evento"
+                app:layout_constraintBottom_toBottomOf="@+id/destruirevento"
+                app:layout_constraintStart_toStartOf="parent"
+                android:onClick="cargarEvento"/>
+
+            <EditText
+                android:id="@+id/horasanteconvo"
+                android:layout_width="40dp"
+                android:layout_height="45dp"
+                android:ems="10"
+                android:inputType="numberDecimal|time"
+                android:text="36"
+                app:layout_constraintBottom_toBottomOf="@+id/checkconvo"
+                app:layout_constraintStart_toEndOf="@+id/checkconvo"
+                app:layout_constraintTop_toTopOf="@+id/checkconvo" />
+
+            <EditText
+                android:id="@+id/horasantewarn"
+                android:layout_width="40dp"
+                android:layout_height="45dp"
+                android:ems="10"
+                android:inputType="numberDecimal|time"
+                android:text="6"
+                app:layout_constraintBottom_toBottomOf="@+id/checkwarning"
+                app:layout_constraintStart_toEndOf="@+id/checkwarning"
+                app:layout_constraintTop_toTopOf="@+id/checkwarning" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="hs antes"
+                app:layout_constraintBottom_toBottomOf="@+id/horasantewarn"
+                app:layout_constraintStart_toEndOf="@+id/horasantewarn"
+                app:layout_constraintTop_toTopOf="@+id/horasantewarn" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Evento Conectado:"
+                app:layout_constraintTop_toBottomOf="@+id/iniciohilo"
+                tools:layout_editor_absoluteX="94dp" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="PID"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                tools:layout_editor_absoluteX="144dp" />
+
+            <CheckBox
+                android:id="@+id/checkBoxJU"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/checkBoxMI"
+                app:layout_constraintStart_toEndOf="@+id/checkBoxMI"
+                app:layout_constraintTop_toTopOf="@+id/checkBoxMI"
+                style="@android:style/Widget.DeviceDefault.Light.CompoundButton.RadioButton" />
+
+            <CheckBox
+                android:id="@+id/checkBoxMI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                app:layout_constraintBottom_toBottomOf="@+id/checkBoxMA"
+                app:layout_constraintStart_toEndOf="@+id/checkBoxMA"
+                app:layout_constraintTop_toTopOf="@+id/checkBoxMA"
+                style="@android:style/Widget.DeviceDefault.Light.CompoundButton.RadioButton" />
+
+            <CheckBox
+                android:id="@+id/checkBoxSA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/checkBoxVI"
+                app:layout_constraintStart_toEndOf="@+id/checkBoxVI"
+                app:layout_constraintTop_toTopOf="@+id/checkBoxVI"
+                style="@android:style/Widget.DeviceDefault.Light.CompoundButton.RadioButton" />
+
+            <CheckBox
+                android:id="@+id/checkBoxMA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/checkBoxLU"
+                app:layout_constraintStart_toEndOf="@+id/checkBoxLU"
+                app:layout_constraintTop_toTopOf="@+id/checkBoxLU"
+                style="@android:style/Widget.DeviceDefault.Light.CompoundButton.RadioButton" />
+
+            <CheckBox
+                android:id="@+id/checkBoxDO"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/checkBoxSA"
+                app:layout_constraintStart_toEndOf="@+id/checkBoxSA"
+                app:layout_constraintTop_toTopOf="@+id/checkBoxSA"
+                style="@android:style/Widget.DeviceDefault.Light.CompoundButton.RadioButton" />
+
+            <CheckBox
+                android:id="@+id/checkBoxLU"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                style="@android:style/Widget.DeviceDefault.Light.CompoundButton.RadioButton" />
+
+            <CheckBox
+                android:id="@+id/checkBoxVI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/checkBoxJU"
+                app:layout_constraintStart_toEndOf="@+id/checkBoxJU"
+                app:layout_constraintTop_toTopOf="@+id/checkBoxJU"
+                style="@android:style/Widget.DeviceDefault.Light.CompoundButton.RadioButton" />
+
+            <Button
+                android:id="@+id/destruirevento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="30dp"
+                android:onClick="finHilo"
+                android:text="destruir evento"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button6"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
